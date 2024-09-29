@@ -65,22 +65,19 @@ void PhoneBook::print_contacts(void)
 	int j = 0;
 
 	std::cout << B_G"Contacts : " << RESET << std::endl;
-	std::cout << B_Y"_______________________________________________________" << RESET << std::endl;
-	std::cout << B_Y << std::setw(10) << "First name" << "|" << std::setw(10) << "Last name" << "|";
-	std::cout << std::setw(10) << "Nickname" << "|" << std::setw(10) << "Secret"<< "|" << std::setw(10) << "Phone" << "|\n" << RESET << std::endl;
+	std::cout << B_Y"_____________________________________________" << RESET << std::endl;
+	std::cout << B_Y << std::setw(10) << "Index" << "|" << std::setw(10) << "First name" << "|" << std::setw(10) << "Last name" << "|";
+	std::cout << std::setw(10) << "Nickname" << "|" << std::endl;
 	while(j < nbr_contacts)
 	{
+		std::cout << B_G << std::setw(10) << j << RESET << B_Y"|" << RESET;
 		print_data(contacts[j].get_first_name());
 		print_data(contacts[j].get_last_name());
 		print_data(contacts[j].get_nick_name());
-		print_data(contacts[j].get_darkest_secret());
-		print_data(contacts[j].get_phone_number());
-		std::cout << B_G <<"  ["<< j<<"]"<<RESET;
 		std::cout << std::endl;
-		std::cout << B_Y"_______________________________________________________\n" << RESET <<std::endl;
+		std::cout << B_Y"_____________________________________________" << std::endl << RESET <<std::endl;
 		j++;
 	}
-	//std::cout << B_Y"_______________________________________________________" << RESET << std::endl;
 }
 void	PhoneBook::search(std::string cmd)
 {
