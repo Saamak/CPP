@@ -1,6 +1,7 @@
 SOURCES =   Zombie.cpp \
 			main.cpp \
-			randomChump.cpp
+			randomChump.cpp \
+			newZombie.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 

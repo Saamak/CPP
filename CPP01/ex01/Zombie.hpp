@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/30 18:06:57 by ppitzini          #+#    #+#             */
+/*   Updated: 2024/09/30 18:07:07 by ppitzini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 #include <iostream>
 
 # define R   "\x1B[31m"
@@ -11,8 +25,7 @@
 
 class Zombie{
 	public :
-		Zombie(void); // default constructor
-		// Zombie(std::string name); // parametized construtor
+		Zombie(void);
 		~Zombie(void);
 		std::string getName(void);
 		void setName(std::string name);
@@ -22,3 +35,5 @@ class Zombie{
 
 Zombie* zombieHorde(int N, std::string name);
 void	announce(std::string name);
+
+#endif

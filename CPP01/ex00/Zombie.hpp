@@ -1,3 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/30 18:05:54 by ppitzini          #+#    #+#             */
+/*   Updated: 2024/09/30 18:05:57 by ppitzini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
 #include <iostream>
 
 # define R   "\x1B[31m"
@@ -14,7 +29,6 @@ class Zombie{
 		Zombie(void);
 		~Zombie(void);
 		void announce(void);
-		void randomChump(std::string name);
 		std::string getName(void);
 		void setName(std::string name);
 	private :
@@ -23,3 +37,5 @@ class Zombie{
 
 Zombie* newZombie(std::string name);
 void randomChump (std::string name);
+
+#endif
