@@ -6,7 +6,7 @@
 /*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:06:57 by ppitzini          #+#    #+#             */
-/*   Updated: 2024/09/30 18:07:07 by ppitzini         ###   ########.fr       */
+/*   Updated: 2024/10/10 09:41:44 by ppitzini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ class Zombie{
 		~Zombie(void);
 		std::string getName(void);
 		void setName(std::string name);
+		void	announce();
 	private :
 		std::string _name;
 };
 
 Zombie* zombieHorde(int N, std::string name);
-void	announce(std::string name);
 
 #endif

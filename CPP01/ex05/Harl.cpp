@@ -1,11 +1,6 @@
 #include "Harl.hpp"
 
-Harl::Harl(){
-	funcMap["debug"] = &Harl::debug;
-	funcMap["info"] = &Harl::info;
-	funcMap["warning"] = &Harl::warning;
-	funcMap["error"] = &Harl::error;
-}
+Harl::Harl(){}
 
 Harl::~Harl(){}
 
@@ -26,12 +21,27 @@ void Harl::error(void){
 	std::cout << "Error" << std::endl;
 }
 
-void Harl::complain(std::string level){
-	if (funcMap.find(level) != funcMap.end())
+void Harl::complain(std::string level)
+{
+	int i = 0;
+	std::string OPTION[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void    (Harl::*harlFunc[])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+	if (level.length() <= 0)
 	{
-		void(Harl::*func)() = funcMap[level];
-		(this->*func)();
+		std::cout << "[HARL] " << "Say something !" << std::endl;
+		return;
 	}
-	else
-		 std::cout << "Invalid level\n";
+	while(i < 4)
+	{
+		if (level == OPTION[i])
+		{
+			(this->*harlFunc[i])();
+			break;
+		}
+		i++;
+	}
+	if (i == 4)
+		std::cout << "[HARL] "<< "Invalid option" << std::endl;
+	return ;
 }

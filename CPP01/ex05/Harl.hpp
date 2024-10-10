@@ -15,9 +15,6 @@ class Harl{
 		void warning(void);
 		void error(void);
 		void complain(std::string level);
-	private :
-		std::map<std::string, void (Harl::*)()> funcMap;
 };
-
 
 #endif
