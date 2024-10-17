@@ -6,7 +6,7 @@
 /*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:14:53 by ppitzini          #+#    #+#             */
-/*   Updated: 2024/09/30 17:55:40 by ppitzini         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:44:10 by ppitzini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ int main(int argc, char **argv)
 	std::string filename = argv[1];
 	std::string str1 = argv[2];
 	std::string str2 = argv[3];
+	if (str1.empty()) {
+		std::cerr << "Error, str1 should not be empty" << std::endl;
+		return 1;
+	}
 
 	std::ifstream input(filename);
 	if (!input) {
