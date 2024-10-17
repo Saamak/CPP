@@ -6,7 +6,7 @@
 /*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:06:21 by ppitzini          #+#    #+#             */
-/*   Updated: 2024/09/30 18:06:23 by ppitzini         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:48:19 by ppitzini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main(void)
 {
-	Zombie* horde = zombieHorde(3, "ROBERTA");
+	Zombie* horde = zombieHorde(-3, "ROBERTA");
 	delete [] horde;
 }
