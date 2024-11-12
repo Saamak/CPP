@@ -3,7 +3,7 @@
 
 // Default Constructor
 Bureaucrat::Bureaucrat() : _name("default"), _grade(155) {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "[Default Bureaucrat constructor] called" << std::endl;
 }
 // Constructor Param
 Bureaucrat::Bureaucrat(std::string const & name, int const & grade) : _name(name) {
@@ -35,7 +35,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
 
 // Destructor
 Bureaucrat::~Bureaucrat() {
-	std::cout << B_R << "Bureaucrat " << _name << " has been destroyed." << RESET << std::endl;
+	std::cout << "Bureaucrat " << _name << " has been destroyed." << std::endl;
 }
 
 std::string Bureaucrat::getName() const {
@@ -55,11 +55,11 @@ void	Bureaucrat::downGrade(int value){
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Grade is too high!";
+	return (B_R"Grade is too high!");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Grade is too low!";
+	return (B_R"Grade is too low!");
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat &bur) {

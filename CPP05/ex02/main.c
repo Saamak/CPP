@@ -3,35 +3,29 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-int main()
-{
+#include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
 
-	ShrubberyCreationForm shrubberyForm("shrubberyForm");
-	// Bureaucrat* B = nullptr;
+int main() {
+    try {
+        // Create a Bureaucrat object
+        Bureaucrat bob("Bob", 120); // Assuming grade 1 is the highest grade
 
-	// try {
-	// 	B = new Bureaucrat("bob", 12);
-	// 	std::cout << *B << std::endl;
-	// }
-	// catch (const Bureaucrat::GradeTooHighException& e) {
-	// 	std::cerr << "Exception caught: " << e.what() << std::endl;
-	// }
-	// catch (const Bureaucrat::GradeTooLowException& e) {
-	// 	std::cerr << "Exception caught: " << e.what() << std::endl;
-	// }
-	// try{
-	// 	ShrubberyCreationForm S(10, 10, "Police Documents");
-	// }
-	// catch (const ShrubberyCreationForm::BadGradeExeption& e){
-	// 	std::cerr << "Exeption caught : " << e.what() << std::endl;
-	// }
+        // Create a ShrubberyCreationForm object with the target "ZIZI"
+        ShrubberyCreationForm shrubberyForm("ZIZI");
+		std::cout << shrubberyForm;
 
-	// 		F.beSigned(*B);
-	// 	}
-	// }
-	// catch (const Form::CantSignExeption& e) {
-	// 	std::cerr << "Exception caught: " << B->getName()<< e.what() << std::endl;
-	// }
+        // Sign the form
+        // shrubberyForm.beSigned(bob);
 
-	return 0;
+        // Execute the form
+		// shrubberyForm.beSigned(bob);
+        shrubberyForm.execute(bob);
+
+        std::cout << "Shrubbery creation executed successfully." << std::endl;
+    } catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+
+    return 0;
 }

@@ -35,7 +35,7 @@ class AForm {
 		const char *what() const throw();
 		};
 		void beSigned(Bureaucrat *bur);
-		virtual void execute(Bureaucrat const &executor) const = 0;
+		virtual int execute(Bureaucrat const &executor) const = 0;
 
 		// GETTERS / SETTERS
 		int getGradeToSign() const;

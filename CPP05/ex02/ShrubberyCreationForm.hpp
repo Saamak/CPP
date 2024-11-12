@@ -3,6 +3,7 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm {
 	private:
@@ -22,7 +23,7 @@ class ShrubberyCreationForm : public AForm {
 		"  /__________\\  \n"
 		"       ||       \n"
 		"       ||       \n";
-	void execute(Bureaucrat const &executor) const;
+	int execute(Bureaucrat const &executor) const;
 };
 
 #endif
