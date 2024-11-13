@@ -21,21 +21,26 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-int ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
-
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 	if (!this->get_isSigned())
-        throw AForm::NotSigned();
-	if(executor.getGrade() <= this->getGradeToExec())
-	{
+		throw AForm::NotSigned();
+	if (executor.getGrade() <= this->getGradeToExec()) {
 		std::string filename = target + "_shrubbery";
-		std::cout <<B_G << "EXECUTION SHRUBERRY" <<RESET<< std::endl;
+		std::cout << B_G << "EXECUTION SHRUBERRY" << RESET << std::endl;
+
+		// Check if the file exists and delete it if it does
+		std::ifstream ifs_check(filename);
+		if (ifs_check) {
+			ifs_check.close();
+			std::remove(filename.c_str());
+		}
+
 		// Write to the file
 		{
-			std::ofstream ofs(filename, std::ios::out | std::ios::app);
+			std::ofstream ofs(filename, std::ios::out);
 			if (!ofs) {
-				std::cerr << "Error: Could not create or open the file 'caca' for writing." << std::endl;
-				ofs.close();
-				return 1;
+				std::cerr << "Error: Could not create or open the file '" << filename << "' for writing." << std::endl;
+				return;
 			}
 			ofs << _tree;
 			ofs.close();
@@ -45,19 +50,16 @@ int ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
 		{
 			std::ifstream ifs(filename);
 			if (!ifs) {
-				std::cerr << "Error: Could not open the file 'caca' for reading." << std::endl;
-				ifs.close();
-				return 1;
+				std::cerr << "Error: Could not open the file '" << filename << "' for reading." << std::endl;
+				return;
 			}
 			std::string content;
 			while (std::getline(ifs, content)) {
 				std::cout << content << std::endl;
 			}
-			std::cout << content << std::endl;
 			ifs.close();
 		}
-	}
-	else
+	} else {
 		throw AForm::GradeTooLowException();
-	return 0;
+	}
 }

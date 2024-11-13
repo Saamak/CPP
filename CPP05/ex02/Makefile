@@ -2,6 +2,7 @@ SOURCES = main.cpp \
 		  Bureaucrat.cpp \
 		  AForm.cpp \
 		  ShrubberyCreationForm.cpp \
+		  PresidentialPardonForm.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 

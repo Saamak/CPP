@@ -58,12 +58,13 @@ bool AForm::get_isSigned(void) const {
 }
 
 void AForm::beSigned(Bureaucrat *bur) {
-  if (bur->getGrade() > this->getGradeToSign()) {
-    throw AForm::GradeTooLowException();
-  }
-  if (this->_isSigned)
-    throw AForm::AlreadySigned();
-  this->_isSigned = true;
+	std::cout << bur->getName() <<" is trying to sign "<<B_Y<< this->getName()<<RESET<< std::endl;
+	if (bur->getGrade() > this->getGradeToSign()) {
+		throw AForm::GradeTooLowException();
+	}
+	if (this->_isSigned)
+		throw AForm::AlreadySigned();
+	this->_isSigned = true;
 }
 
 std::ostream &operator<<(std::ostream &os, AForm &bur) {
@@ -74,18 +75,13 @@ std::ostream &operator<<(std::ostream &os, AForm &bur) {
 	os << "Grade to signed : " << bur.getGradeToSign() << std::endl;
 	os << "Form is";
 	if (bur.get_isSigned() == true)
-		os << " already signed" << std::endl;
+		os <<B_G<< " is signed" << RESET << std::endl;
 	else
-		os << " not signed" << std::endl;
+		os <<B_R<< " not signed" <<RESET<< std::endl;
 		os << "* ------------------------------------- *";
 	std::cout << RESET << std::endl;
 	return (os);
 }
-
-// std::ostream &operator<<(std::ostream &os, AForm &For) {
-//   os << For.getGradeToSign() << " | " << For.getGradeToExec() << " : " << B_Y << For.getName() << std::endl;
-//   return (os);
-// }
 
 
 //EXEPCTIONS

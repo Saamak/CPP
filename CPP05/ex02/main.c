@@ -2,30 +2,34 @@
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
-
-#include "ShrubberyCreationForm.hpp"
-#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
-    try {
-        // Create a Bureaucrat object
-        Bureaucrat bob("Bob", 120); // Assuming grade 1 is the highest grade
+	try {
+		// Create a Bureaucrat object
+		Bureaucrat bob("Bob", 120);
+		Bureaucrat jean("Jean", 1); // Assuming grade 1 is the highest grade
 
-        // Create a ShrubberyCreationForm object with the target "ZIZI"
-        ShrubberyCreationForm shrubberyForm("ZIZI");
+		// Create a ShrubberyCreationForm object with the target "ZIZI"
+		ShrubberyCreationForm shrubberyForm("ZIZI");
+		PresidentialPardonForm Pardon("Phillipe");
+		std::cout << shrubberyForm;
+		std::cout << Pardon;
+
+		// Sign the form
+		shrubberyForm.beSigned(&bob);
 		std::cout << shrubberyForm;
 
-        // Sign the form
-        // shrubberyForm.beSigned(bob);
+		// Execute the form
+		bob.executeForm(shrubberyForm);
+		Pardon.beSigned(&jean);
+		std::cout << Pardon;
+		jean.executeForm(Pardon);
 
-        // Execute the form
-		// shrubberyForm.beSigned(bob);
-        shrubberyForm.execute(bob);
+		std::cout << "Shrubbery creation executed successfully." << std::endl;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 
-        std::cout << "Shrubbery creation executed successfully." << std::endl;
-    } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
-
-    return 0;
+	return 0;
 }

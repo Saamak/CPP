@@ -3,8 +3,11 @@
 
 #include <iostream>
 #include <string>
-
+#include "AForm.hpp"
 #include "colors.h"
+
+
+class AForm;
 
 class Bureaucrat{
 	public :
@@ -17,6 +20,8 @@ class Bureaucrat{
 	int		getGrade() const;
 	void	downGrade(int value);
 	void	upGrade(int value);
+
+	void executeForm(AForm const & form);
 
 	class GradeTooHighException : public std::exception {
 	public:

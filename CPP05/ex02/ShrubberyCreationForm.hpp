@@ -23,7 +23,7 @@ class ShrubberyCreationForm : public AForm {
 		"  /__________\\  \n"
 		"       ||       \n"
 		"       ||       \n";
-	int execute(Bureaucrat const &executor) const;
+	void execute(Bureaucrat const &executor) const;
 };
 
 #endif
