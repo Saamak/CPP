@@ -7,6 +7,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
 	this->target = target;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(){
+	std::cout << "[Shrubbery Form] basi constructor called" << std::endl;
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
     std::cout << "[Shrubbery Form] destructor called" << std::endl;
