@@ -91,4 +91,5 @@ void ScalarConverter::convert(std::string& input){
 		std::cerr<<std::endl<<"Error"<<std::endl;
 		exit(1);
 	}
+	// convertit en double puis en others
 }
