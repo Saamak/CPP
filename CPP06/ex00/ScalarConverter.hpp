@@ -5,6 +5,8 @@
 #include <string>
 #include <cstdlib>
 #include "colors.h"
+#include <iomanip>
+#include <cctype>
 
 class ScalarConverter{
 	public :

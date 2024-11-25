@@ -1,7 +1,12 @@
 #include "ScalarConverter.hpp"
 
+bool isDisplayable(char c) {
+	return std::isprint(static_cast<unsigned char>(c));
+}
+
 std::string check_if_int(const std::string &input) {
-	for (int i = 0; i < input.length(); i++) {
+	int start = (input[0] == '-') ? 1 : 0;
+	for (int i = start; i < input.length(); i++) {
 		if (!isdigit(input[i])) {
 			return "unknown";
 		}
@@ -20,8 +25,9 @@ std::string check_if_float(const std::string &input) {
 	if (input.empty() || input.back() != 'f') {
 		return "unknown";
 	}
+	int start = (input[0] == '-') ? 1 : 0;
 	int dot_count = 0;
-	for (int i = 0; i < input.length() - 1; i++) {
+	for (int i = start; i < input.length() - 1; i++) {
 		if (!isdigit(input[i]) && input[i] != '.') {
 			return "unknown";
 		}
@@ -30,7 +36,7 @@ std::string check_if_float(const std::string &input) {
 			if (dot_count > 1) {
 				return "unknown";
 			}
-			if (i == 0 || i == input.length() - 2 || !isdigit(input[i - 1]) || !isdigit(input[i + 1])) {
+			if (i == start || i == input.length() - 2 || !isdigit(input[i - 1]) || !isdigit(input[i + 1])) {
 				return "unknown";
 			}
 		}
@@ -42,8 +48,9 @@ std::string check_if_double(const std::string &input) {
 	if (input.empty() || input.back() == 'f') {
 		return "unknown";
 	}
+	int start = (input[0] == '-') ? 1 : 0;
 	int dot_count = 0;
-	for (int i = 0; i < input.length(); i++) {
+	for (int i = start; i < input.length(); i++) {
 		if (!isdigit(input[i]) && input[i] != '.') {
 			return "unknown";
 		}
@@ -52,7 +59,7 @@ std::string check_if_double(const std::string &input) {
 			if (dot_count > 1) {
 				return "unknown";
 			}
-			if (i == 0 || i == input.length() - 1 || !isdigit(input[i - 1]) || !isdigit(input[i + 1])) {
+			if (i == start || i == input.length() - 1 || !isdigit(input[i - 1]) || !isdigit(input[i + 1])) {
 				return "unknown";
 			}
 		}
@@ -85,11 +92,69 @@ void ScalarConverter::convert(std::string& input){
 	std::string type;
 
 	type = what_type(input);
-	std::cout <<B_Y<<"Type  : "<<RESET<<BOLD<< type<<RESET;
-	if(type == "unknown")
-	{
-		std::cerr<<std::endl<<"Error"<<std::endl;
+	std::cout << B_Y << "Type  : " << RESET << BOLD << type << RESET;
+	if (type == "unknown") {
+		std::cerr << std::endl << "Error" << std::endl;
 		exit(1);
 	}
-	// convertit en double puis en others
+
+	double res = 0.0;
+	if (type != "char") {
+		char* end;
+		errno = 0;
+
+		if (type == "float" && input.back() == 'f') {
+			input.pop_back(); // Remove the 'f' character
+		}
+
+		res = strtod(input.c_str(), &end);
+
+		if (errno != 0 || *end != '\0') {
+			std::cerr << std::endl << "Error: Invalid conversion" << std::endl;
+			exit(1);
+		}
+	}
+
+	std::cout << std::endl;
+
+	if (type == "char") {
+		char c = input[0];
+		std::cout << "int: " << static_cast<int>(c) << std::endl;
+		if (isDisplayable(c)) {
+			std::cout << "char: " << c << std::endl;
+		} else {
+			std::cout << "char: can't see this" << std::endl;
+		}
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(c) << std::endl;
+	} else if (type == "int") {
+		int i = static_cast<int>(res);
+		std::cout << "int: " << i << std::endl;
+		if (isDisplayable(static_cast<char>(i))) {
+			std::cout << "char: " << static_cast<char>(i) << std::endl;
+		} else {
+			std::cout << "char: can't see this" << std::endl;
+		}
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(i) << std::endl;
+	} else if (type == "float") {
+		float f = static_cast<float>(res);
+		std::cout << "int: " << static_cast<int>(f) << std::endl;
+		if (isDisplayable(static_cast<char>(f))) {
+			std::cout << "char: " << static_cast<char>(f) << std::endl;
+		} else {
+			std::cout << "char: can't see this" << std::endl;
+		}
+		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(f) << std::endl;
+	} else if (type == "double") {
+		std::cout << "int: " << static_cast<int>(res) << std::endl;
+		if (isDisplayable(static_cast<char>(res))) {
+			std::cout << "char: " << static_cast<char>(res) << std::endl;
+		} else {
+			std::cout << "char: can't see this" << std::endl;
+		}
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(res) << "f" << std::endl;
+		std::cout << "double: " << res << std::endl;
+    }
 }
