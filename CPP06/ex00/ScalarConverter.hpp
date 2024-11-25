@@ -2,18 +2,14 @@
 #define SCALAR_CONVERTER_HPP
 
 #include <iostream>
-#include <string>
-#include <cstdlib>
 #include "colors.h"
-#include <iomanip>
-#include <cctype>
+#include <cstdint>
 
 class ScalarConverter{
 	public :
 		static void convert(std::string& input);
 	private:
-		ScalarConverter();
-		~ScalarConverter();
+		ScalarConverter(); // privee pour empecher l'initialisation
 };
 
 #endif
