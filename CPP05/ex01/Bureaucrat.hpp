@@ -2,12 +2,18 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include <string>
-#include "AForm.hpp"
-#include "colors.h"
+#include "Form.hpp"
 
+# define R   "\x1B[31m"
+# define G   "\x1B[32m"
+# define Y   "\x1B[33m"
+# define B_R   "\x1B[1;31m"
+# define B_G   "\x1B[1;32m"
+# define B_Y   "\x1B[1;33m"
+# define BOLD "\x1B[1m"
+# define RESET "\x1B[0m"
 
-class AForm;
+class Form;
 
 class Bureaucrat{
 	public :
@@ -20,9 +26,7 @@ class Bureaucrat{
 	int		getGrade() const;
 	void	downGrade(int value);
 	void	upGrade(int value);
-	void 	signForm(AForm &check);
-
-	Bureaucrat executeForm(AForm const *form);
+	void 	signForm(Form &check);
 
 	class GradeTooHighException : public std::exception {
 	public:

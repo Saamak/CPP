@@ -14,16 +14,16 @@
 
 class Bureaucrat{
 	public :
-	Bureaucrat();
-	Bureaucrat(std::string const & name, int const & grade);
-	Bureaucrat(const Bureaucrat& cpy);
-	Bureaucrat& operator=(const Bureaucrat& src);
-	~Bureaucrat();
-	std::string getName() const;
-	int		getGrade() const;
-	void	downGrade(int value);
-	void	upGrade(int value);
-	void	signForm();
+		Bureaucrat();
+		Bureaucrat(std::string const & name, int const & grade);
+		Bureaucrat(const Bureaucrat& cpy);
+		Bureaucrat& operator=(const Bureaucrat& src);
+		~Bureaucrat();
+		std::string getName() const;
+		int		getGrade() const;
+		void	downGrade(int value);
+		void	upGrade(int value);
+		void	signForm();
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -36,8 +36,8 @@ class Bureaucrat{
 	};
 
 	private :
-	std::string const _name;
-	int _grade;
+		std::string const _name;
+		int _grade;
 };
 std::ostream &operator<<(std::ostream &os, Bureaucrat &bur);
 

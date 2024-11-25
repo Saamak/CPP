@@ -20,6 +20,7 @@ class Bureaucrat{
 	int		getGrade() const;
 	void	downGrade(int value);
 	void	upGrade(int value);
+	void 	signForm(AForm &check);
 
 	void executeForm(AForm const & form);
 

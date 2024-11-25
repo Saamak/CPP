@@ -12,9 +12,10 @@ int main() {
 		Bureaucrat bender("bender", 1);
 		Intern someRandomIntern;
 		AForm* rrf;
-		// OPTION : shrubbery creation , robotomy request, presidential pardon
+		// OPTION : Shrubbery creation , Robotomy request, Presidential pardon
 		rrf = someRandomIntern.makeForm("Shrubbery creation", "Bender");
 		rrf->beSigned(&bender);
+		bender.signForm(*rrf);
 		bender.executeForm(rrf);
 		delete rrf;
 	} catch(std::exception &e) {

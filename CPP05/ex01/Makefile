@@ -1,9 +1,6 @@
 SOURCES = main.cpp \
 		  Bureaucrat.cpp \
-		  AForm.cpp \
-		  ShrubberyCreationForm.cpp \
-		  PresidentialPardonForm.cpp \
-		  RobotomyRequestForm.cpp
+		  Form.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
@@ -11,7 +8,7 @@ NAME = Bureaucrat
 
 CXX = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 $(NAME): $(OBJECTS)
 	$(CXX) $(FLAGS) $(OBJECTS) -o $(NAME)

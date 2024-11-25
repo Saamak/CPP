@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat(std::string const & name, int const & grade) : _name(name
 	{
 		_grade = grade;
 	}
-	std::cout << "Bureaucrat " << _name << " has been created." << std::endl;
+	std::cout << B_G << "Bureaucrat " << _name << " has been created." << RESET << std::endl;
 }
 
 // Copy Constructor
@@ -35,7 +35,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
 
 // Destructor
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat " << _name << " has been destroyed." << std::endl;
+	std::cout << B_R << "Bureaucrat " << _name << " has been destroyed." << RESET << std::endl;
 }
 
 std::string Bureaucrat::getName() const {
@@ -63,6 +63,16 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat &bur) {
-	os << B_Y << bur.getName() << RESET << ", bureaucrat grade " << B_G << bur.getGrade() << std::endl;
-	return (os);
+  os << B_Y << bur.getName() << RESET << ", bureaucrat grade " << B_G << bur.getGrade() << std::endl;
+  return (os);
+}
+
+void Bureaucrat::signForm(Form &t) {
+	try {
+	t.beSigned(*this);
+	std::cout << this->_name << " signed " << t.getName() << std::endl;
+	} catch (std::exception &e) {
+	std::cout << this->_name << " couldn’t sign " << t.getName() << " because "
+				<< e.what() << std::endl;
+	}
 }

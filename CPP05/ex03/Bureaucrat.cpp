@@ -68,16 +68,26 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat &bur) {
 }
 
 Bureaucrat Bureaucrat::executeForm(AForm const *form) {
-    if (form == nullptr) {
-        std::cout << this->getName() << " failed to execute form because it is null." << std::endl;
-        return *this;
-    }
+	if (form == nullptr) {
+		std::cout << this->getName() << " failed to execute form because it is null." << std::endl;
+		return *this;
+	}
 
-    try {
-        form->execute(*this);
-        std::cout << this->getName() << " executed " << form->getName() << std::endl;
-    } catch (std::exception &e) {
-        std::cout << this->getName() << " failed to execute " << form->getName() << " because " << e.what() << std::endl;
-    }
-    return *this;
+	try {
+		form->execute(*this);
+		std::cout << this->getName() << " executed " << form->getName() << std::endl;
+	} catch (std::exception &e) {
+		std::cout << this->getName() << " failed to execute " << form->getName() << " because " << e.what() << std::endl;
+	}
+	return *this;
+}
+
+void Bureaucrat::signForm(AForm &t) {
+	try {
+	t.beSigned(this);
+	std::cout << this->_name << " signed " << t.getName() << std::endl;
+	} catch (std::exception &e) {
+	std::cout << this->_name << " couldn’t sign " << t.getName() << " because "
+				<< e.what() << std::endl;
+	}
 }
