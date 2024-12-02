@@ -4,6 +4,23 @@ bool isDisplayable(char c) {
 	return std::isprint(static_cast<unsigned char>(c));
 }
 
+void	print_special(std::string input)
+{
+	std::cout << "char: impossible\nint: impossible \n";
+	std::cout << "float: " + input <<std::endl;
+	std::cout << "double: " +input << std::endl;
+	exit(1);
+}
+
+bool CheckErrors(std::string value)
+{
+	std::string handle_array[6] = {"-inff", "+inff", "-inf", "nan", "inf", "nanf"};
+	for (int i = 0; i < 6; i++)
+		if (handle_array[i] == value)
+			return true;
+	return false;
+}
+
 std::string check_if_int(const std::string &input) {
 	int start = (input[0] == '-') ? 1 : 0;
 	for (int i = start; i < input.length(); i++) {
@@ -86,13 +103,15 @@ void	error()
 	std::cerr <<B_R<< "Error" <<RESET<<std::endl;
 	exit(1);
 }
-
+//GERER NANF ETC
 void ScalarConverter::convert(std::string& input){
+	bool special = CheckErrors(input);
+	if(special)
+		print_special(input);
 	std::cout << B_G <<"Input : "<<RESET<<BOLD<< input <<RESET<< std::endl;
 	std::string type;
 
 	type = what_type(input);
-	std::cout << B_Y << "Type  : " << RESET << BOLD << type << RESET;
 	if (type == "unknown") {
 		std::cerr << std::endl << "Error" << std::endl;
 		exit(1);

@@ -4,6 +4,7 @@
 #include <iostream>
 #include "colors.h"
 #include <cstdint>
+#include <iomanip>
 
 class ScalarConverter{
 	public :
