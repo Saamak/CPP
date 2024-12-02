@@ -9,7 +9,6 @@ void	print_special(std::string input)
 	std::cout << "char: impossible\nint: impossible \n";
 	std::cout << "float: " + input <<std::endl;
 	std::cout << "double: " +input << std::endl;
-	exit(1);
 }
 
 bool CheckErrors(std::string value)
@@ -106,8 +105,10 @@ void	error()
 //GERER NANF ETC
 void ScalarConverter::convert(std::string& input){
 	bool special = CheckErrors(input);
-	if(special)
+	if(special){
 		print_special(input);
+		return ;
+	}
 	std::cout << B_G <<"Input : "<<RESET<<BOLD<< input <<RESET<< std::endl;
 	std::string type;
 

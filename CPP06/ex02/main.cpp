@@ -44,7 +44,7 @@ void identify(Base& p) {
 		std::cout << "C" << std::endl;
 		return;
 	} catch (const std::bad_cast&) { }
-
+	
 	std::cout << "Unknown" << std::endl;
 }
 
