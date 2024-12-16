@@ -25,7 +25,7 @@ void Harl::complain(std::string level)
 {
 	int i = 0;
 	std::string OPTION[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void    (Harl::*harlFunc[])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	void (Harl::*harlFunc[])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	if (level.length() <= 0)
 	{

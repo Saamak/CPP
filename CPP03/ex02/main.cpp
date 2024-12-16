@@ -6,7 +6,7 @@
 /*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 15:44:16 by ppitzini          #+#    #+#             */
-/*   Updated: 2024/10/30 15:54:33 by ppitzini         ###   ########.fr       */
+/*   Updated: 2024/10/31 15:17:01 by ppitzini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
 	bernard.takeDamage(9);
 	bernard.beRepaired(2);
 	bernard.beRepaired(2);
-	bernard.attack("test");
+	bernard.attack("TOTO");
 	bernard.beRepaired(2);
 	bernard.beRepaired(0);
 	bernard.takeDamage(2);

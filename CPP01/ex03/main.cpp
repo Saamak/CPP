@@ -6,7 +6,7 @@
 /*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:08:32 by ppitzini          #+#    #+#             */
-/*   Updated: 2024/09/30 18:08:34 by ppitzini         ###   ########.fr       */
+/*   Updated: 2024/10/19 19:29:48 by ppitzini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main()
 
 	Weapon* kalash = &KALASH;
 	HumanB jim("Jim");
-	jim.setWeapon(NULL);
+	// jim.setWeapon(NULL);
 	jim.attack();
 	KALASH.setType("some other type of kalash");
 	jim.attack();

@@ -6,10 +6,12 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 NAME = Harl
 
+CXX = c++
+
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 $(NAME): $(OBJECTS)
-	c++ $(FLAGS) $(OBJECTS) -o $(NAME)
+	$(CXX) $(FLAGS) $(OBJECTS) -o $(NAME)
 
 all : $(NAME)
 

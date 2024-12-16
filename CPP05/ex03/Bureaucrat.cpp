@@ -47,11 +47,17 @@ int Bureaucrat::getGrade() const{
 }
 
 void	Bureaucrat::upGrade(int value){
-	_grade -= value;
+	if((this->_grade - value) > 1)
+		_grade -= value;
+	else
+		std::cout << B_R << "upGrade impossible" << std::endl;
 }
 
 void	Bureaucrat::downGrade(int value){
-	_grade += value;
+	if((this->_grade + value) < 150)
+		_grade += value;
+	else
+		std::cout << B_R << "DownGrade impossible" << std::endl;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {

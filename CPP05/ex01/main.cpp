@@ -21,6 +21,7 @@ int main()
 		if (B != nullptr) {
 		std::cout << F;
 		B->signForm(F);
+		std::cout << *B;
 		}
 	}
 	catch (const Bureaucrat::GradeTooHighException& e) {

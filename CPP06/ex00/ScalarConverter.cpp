@@ -4,11 +4,23 @@ bool isDisplayable(char c) {
 	return std::isprint(static_cast<unsigned char>(c));
 }
 
-void	print_special(std::string input)
-{
-	std::cout << "char: impossible\nint: impossible \n";
-	std::cout << "float: " + input <<std::endl;
-	std::cout << "double: " +input << std::endl;
+void print_special(const std::string& input) {
+	std::cout << "char: impossible\n";
+	std::cout << "int: impossible\n";
+
+	// Print float value
+	if (input.back() != 'f') {
+		std::cout << "float: " << input << "f" << std::endl;
+	} else {
+		std::cout << "float: " << input << std::endl;
+	}
+
+	// Print double value
+	if (input.back() == 'f') {
+		std::cout << "double: " << input.substr(0, input.size() - 1) << std::endl;
+	} else {
+		std::cout << "double: " << input << std::endl;
+	}
 }
 
 bool CheckErrors(std::string value)

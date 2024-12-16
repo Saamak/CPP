@@ -6,7 +6,7 @@
 /*   By: ppitzini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 15:44:46 by ppitzini          #+#    #+#             */
-/*   Updated: 2024/10/30 14:53:51 by ppitzini         ###   ########.fr       */
+/*   Updated: 2024/10/31 15:13:20 by ppitzini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,9 @@ class ClapTrap{
 			int _attack_damage;
 		};
 #endif
+
+clap a;
+
+clap b;
+
+a =
