@@ -15,8 +15,6 @@ class ElementNotFoundException : public std::exception{
 
 template <typename T>
 void easyfind(T &t, int b){
-	t.push_back(5);
-
 	typename T::iterator it = std::find(t.begin(), t.end(), b);
 
 	if (it != t.end()) {
